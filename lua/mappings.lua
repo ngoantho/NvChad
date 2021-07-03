@@ -19,8 +19,8 @@ map("v", "x", [=[ "_x ]=], opt)
 --
 
 -- OPEN TERMINALS --
-map("n", "<C-l>", [[<Cmd>vnew term://bash <CR>]], opt) -- term over right
-map("n", "<C-x>", [[<Cmd> split term://bash | resize 10 <CR>]], opt) --  term bottom
+map("n", "<C-l>", [[<Cmd>vnew term://fish <CR>]], opt) -- term over right
+map("n", "<C-x>", [[<Cmd> split term://fish | resize 10 <CR>]], opt) --  term bottom
 map("n", "<C-t>t", [[<Cmd> tabnew | term <CR>]], opt) -- term newtab
 
 -- copy whole file content
@@ -125,3 +125,26 @@ map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
 -- move between tabs
 map("n", "<TAB>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
 map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
+
+-- faster command
+map("n", ";", ":", opt)
+map("x", ";", ":", opt)
+
+-- quicker way to open command window
+map("n", "q;", "q:", opt)
+
+-- yank from current cursor to the end of the line
+map("n", "Y", "y$", opt)
+
+-- move cursor based on physical lines, not the actual lines
+map("n", "^", "g^", opts)
+map("n", "0", "g0", opts)
+
+-- do not include white space characters when using $ in visual mode
+map("x", "$", "g_", opts)
+
+-- go to start of line easier
+map("n", "H", "^")
+map("x", "H", "^")
+map("n", "L", "g_")
+map("x", "L", "g_")
